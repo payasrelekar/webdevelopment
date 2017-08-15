@@ -3,7 +3,9 @@
 <head>
 
     <title>Calculator</title>
-    
+
+    <link href="css/bootstrap.min.css"/>
+    <script src="js/bootstrap.min.js"></script>    
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
     
     <script>
@@ -11,52 +13,73 @@
         $(document).ready(function(){
             
             $("button").click(function(){
-                //Appoint variables to values in number fields
-                var a = $("#no1").val();
-                var b = $("#no2").val();
+                
+                //Appoint variables to values in input fields
+                var a = parseInt($("#no1").val());
+                var b = parseInt($("#no2").val());
                 
                 switch(this.id){    //check what button is pressed
                         
                     case "add":     //addition
                         $("#opn").text("+");
-                        $("#ans").text(parseInt(a) + parseInt(b));
+                        $("#ans").text(a + b);
                         break;
                         
                     case "sub":     //subtraction
                         $("#opn").text("-");
-                        $("#ans").text(parseInt(a) - parseInt(b));
+                        $("#ans").text(a - b);
                         break;
                         
                     case "mul":     //multiplication
                         $("#opn").text("*");
-                        $("#ans").text(parseInt(a) * parseInt(b));
+                        $("#ans").text(a * b);
                         break;
+        
                     case "div":     //division
                         $("#opn").text("/");
-                        $("#ans").text(parseInt(a) / parseInt(b));
+                        $("#ans").text(a / b);
                         break;
-                              }
+                        
+                    default:
+                        break;
+                }
             });
             
         });
     
     </script>
     
+    <style type="text/css">
+    
+/*        I can't CSS. Hoping somebody will find this and pretty this up.       */
+        #d1
+        {
+            background-image: url(IE_sucks.png);
+            background-image: radial-gradient(0.3);
+            height: 200px;
+            background-color: black;
+/*            background-repeat: repeat-x;*/
+        }
+    
+    </style>
+    
 </head>
 
 <body>
 
     <!--    First number  -->
-    <input id="no1" type="number" placeholder="number one"/>
+    <input id="no1" type="text" placeholder="First Number"/>
 
-    <!--    What operation shall be performed   -->
+    <!--    What operation is being performed   -->
     <p id="opn"></p>
 
     <!--    Second Number   -->
-    <input id="no2" type="" placeholder="number two"/>
-
+    <input id="no2" type="text" placeholder="Second Number"/>
+    
+    <br/>
     <!--    Answer  -->
-    <p> = </p><p id="ans"></p>
+    <p> = </p>
+    <p id="ans"></p>
     
     <br/>
     <br/>
@@ -64,7 +87,7 @@
     <div id="d1">
 
         <!--        Buttons for selecting operations    -->
-        <button id="add">add</button>
+        <button id="add" style="color: blue;background-color: crimson;">add</button>
         <button id="sub">sub</button>
         <button id="mul">mul</button>
         <button id="div">div</button>
